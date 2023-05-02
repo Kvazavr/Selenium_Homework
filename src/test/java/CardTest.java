@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class CardTest {
@@ -17,11 +18,12 @@ public class CardTest {
     @BeforeAll
     static void setUpAll() {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\IdeaProjects\\Selenium_Homework\\chromedriver\\chromedriver.exe");
-        WebDriverManager.chromedriver().setup();
+
     }
 
     @BeforeEach
     void setUp() {
+        driver = WebDriverManager.chromedriver().create();
         ChromeOptions options = new ChromeOptions();
 
         options.addArguments("--disable-dev-shm-usage");
@@ -49,6 +51,7 @@ public class CardTest {
         assertEquals(expected, actual);
 
     }
+
     @Test
     void positiveNameHyphenField() {
         driver.get("http://localhost:9999/");
@@ -73,6 +76,7 @@ public class CardTest {
         String actual = driver.findElements(By.className("input__sub")).get(0).getText().trim();
         assertEquals(expected, actual);
     }
+
     @Test
     void specialSymbolsNameField() {
         driver.get("http://localhost:9999/");
@@ -84,6 +88,7 @@ public class CardTest {
         String actual = driver.findElements(By.className("input__sub")).get(0).getText().trim();
         assertEquals(expected, actual);
     }
+
     @Test
     void numbersInNameField() {
         driver.get("http://localhost:9999/");
@@ -107,6 +112,7 @@ public class CardTest {
         String actual = driver.findElements(By.className("input__sub")).get(1).getText().trim();
         assertEquals(expected, actual);
     }
+
     @Test
     void lettersInPhoneField() {
         driver.get("http://localhost:9999/");
@@ -118,6 +124,7 @@ public class CardTest {
         String actual = driver.findElements(By.className("input__sub")).get(1).getText().trim();
         assertEquals(expected, actual);
     }
+
     @Test
     void specialSymbolInPhoneField() {
         driver.get("http://localhost:9999/");
@@ -129,6 +136,7 @@ public class CardTest {
         String actual = driver.findElements(By.className("input__sub")).get(1).getText().trim();
         assertEquals(expected, actual);
     }
+
     @Test
     void emptyNameField() {
         driver.get("http://localhost:9999/");
@@ -140,6 +148,7 @@ public class CardTest {
         String actual = driver.findElements(By.className("input__sub")).get(0).getText().trim();
         assertEquals(expected, actual);
     }
+
     @Test
     void emptyPhoneField() {
         driver.get("http://localhost:9999/");
