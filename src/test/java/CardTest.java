@@ -25,8 +25,8 @@ public class CardTest {
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
-        driver = new ChromeDriver(options);
-        //driver = new ChromeDriver();
+        //driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
     }
 
     @AfterEach
@@ -45,7 +45,7 @@ public class CardTest {
         String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
         String actual = driver.findElement(By.cssSelector("[data-test-id='order-success']")).getText().trim();
         assertEquals(expected, actual);
-        //throw new UnsupportedOperationException();
+
     }
     @Test
     void positiveNameHyphenField() {
@@ -57,7 +57,7 @@ public class CardTest {
         String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
         String actual = driver.findElement(By.cssSelector("[data-test-id='order-success']")).getText().trim();
         assertEquals(expected, actual);
-        //throw new UnsupportedOperationException();
+
     }
 
     @Test
