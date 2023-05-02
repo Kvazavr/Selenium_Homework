@@ -7,8 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import static javax.swing.UIManager.get;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class CardTest {
     private WebDriver driver;
@@ -20,13 +21,14 @@ public class CardTest {
 
     @BeforeEach
     void setUp() {
+        driver = WebDriverManager.chromedriver().create();
         ChromeOptions options = new ChromeOptions();
 
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
-        //driver = new ChromeDriver(options);
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
+        //driver = new ChromeDriver();
     }
 
     @AfterEach
