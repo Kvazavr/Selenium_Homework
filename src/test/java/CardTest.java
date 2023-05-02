@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class CardTest {
-    private WebDriver driver;
+    WebDriver driver;
 
     @BeforeAll
     static void setUpAll() {
