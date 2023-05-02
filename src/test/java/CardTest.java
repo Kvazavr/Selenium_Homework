@@ -17,7 +17,8 @@ public class CardTest {
 
     @BeforeAll
     static void setUpAll() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\IdeaProjects\\Selenium_Homework\\chromedriver\\chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
+        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\IdeaProjects\\Selenium_Homework\\chromedriver\\chromedriver.exe");
 
     }
 
