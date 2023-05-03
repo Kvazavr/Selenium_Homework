@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -12,6 +13,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+
+import java.util.Arrays;
 
 public class CardTest {
     WebDriver driver;
@@ -163,9 +166,11 @@ public class CardTest {
     void emptyCheckBoxField() {
         driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Елена Некрасова");
-        driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+7901234567");
+        driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79012345676");
         driver.findElement(By.tagName("button")).click();
-        driver.findElement(By.cssSelector("[data-test-id='agreement'].input_invalid"));
+        WebElement element = driver.findElement(By.cssSelector("label[data-test-id='agreement']"));
+        String elementClass = element.getAttribute("class");
+        assertTrue(elementClass.contains("input_invalid"));
     }
 
 }
