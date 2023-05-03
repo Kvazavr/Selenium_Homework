@@ -18,20 +18,16 @@ public class CardTest {
     @BeforeAll
     static void setUpAll() {
         WebDriverManager.chromedriver().setup();
-        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\IdeaProjects\\Selenium_Homework\\chromedriver\\chromedriver.exe");
-
     }
 
     @BeforeEach
     void setUp() {
-        //driver = WebDriverManager.chromedriver().create();
         ChromeOptions options = new ChromeOptions();
 
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
-        //driver = new ChromeDriver();
     }
 
     @AfterEach
